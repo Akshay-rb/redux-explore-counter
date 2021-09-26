@@ -1,0 +1,50 @@
+1. create folders under src
+
+   actions
+   reducers
+   store
+   components
+
+2. npm install --save redux
+
+3. npm install --save react-redux
+
+steps involved
+
+1. store -> create folder configureStore.js -> state - counter
+2. reducer -> create reducer - countReducer
+3. store will be set up in index.js - import the store from configureStore
+4. create a component called Count.js in counter folder - function component Count
+
+2 ways of using the store in places required , from index.js where the store is available
+
+---- 1 . export store from index.js . use it in component required , like in Count component
+OR
+---- 2 . use react-redux package
+
+Using react-redux
+
+5. import {Provider} from 'react-redux'
+6. use <Provider store={store}></Provider> ->
+7. to make the store available across the components -> make <App/> component child of <Provider>
+8. <App/> is the main component which has all the components. So, putting it inside <Provider> makes store available to all the components inside <App>
+9. In any component you want to read/update the data from redux store
+   - use - import {connect} from 'react-redux'
+10. connect - a higher order function - connect function returns another function
+
+Higher Order Component ?
+A component that takes another component as an argument is HOC
+A component that return another component is also a HOC
+
+11. return Count from connect() make it HOC. so that state, dispatch method is made available
+    ---- export default connect()(Count)
+12. To make the state available in Count via props - write a function called - mapStateToProps
+    --- refer- Count.js component
+    --- then pass mapStateToProps as arg to connect
+    --- export default connect(mapStateToProps)(connect)
+13. dispatch is available via props
+    --- props.dispatch(increment)
+    --- <button onClick={()=> props.dispatch(increment())}>
+14. create count.js with action generator increment , return type:'INCREMENT' , export it
+15. In the countReducer add a switch case called 'INCREMENT'
+16. repeat the steps for next action generators like 'DECREMENT' , 'RESET'
