@@ -11,3 +11,10 @@ export const removeTodo =(id)=>{
         payload:id
     }
 }
+
+export const showTodo =(todo)=>{
+    return {
+        type:'SHOW',
+        payload:todo
+    }
+}

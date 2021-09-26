@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {addTodo, removeTodo} from '../../actions/todo'
+import {addTodo, removeTodo, showTodo} from '../../actions/todo'
 
 function TodoList(props){
     return(
@@ -9,7 +9,13 @@ function TodoList(props){
             <h2>listing tasks -{props.todo.length}</h2>
             <ul>
                 {props.todo.map(todo=>{
-                    return <li key={todo.id}>{todo.title} <button onClick={()=>{props.dispatch(removeTodo(todo.id))}} >remove</button> </li>
+                    return <li key={todo.id}>{todo.title} <button onClick={()=>{props.dispatch(removeTodo(todo.id))}} >remove</button> 
+                    
+                    {/* <button onClick={()=>{
+                        props.dispatch(showTodo(todo))
+                    }}>show</button> */}
+                    </li>
+                    
                 })}
             </ul>
             <button onClick={()=>{

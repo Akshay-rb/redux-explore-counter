@@ -16,7 +16,7 @@ function Count(props){
     )
 }
 
-// higher order component - a function.component that takes another component as arg or returns a component
+// higher order component - a component that takes another component as arg or returns a component
 
 // returned component from a HOC is called Wrapped component 
 
