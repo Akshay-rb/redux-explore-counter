@@ -1,8 +1,12 @@
 import React from 'react'
-// import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
+import {BrowserRouter, Link, Route} from 'react-router-dom'
+
 
 import Count from './components/counter/Count'
-import TodoList from './components//todo/TodoList'
+import TodoList from './components/todo/TodoList'
+import UsersList from './components/user/UsersList'
+import UserShow from './components/user/UserShow'
+
 
 // import CustomerList from './components/customers/List'
 // import CustomerNew from './components/customers/New'
@@ -50,12 +54,21 @@ import TodoList from './components//todo/TodoList'
 
 function App(){
     return(
-        <div>
-            <h2>Redux uses</h2>
-            <hr />
-            <Count/>
-            <TodoList/>
-        </div>
+        <BrowserRouter>
+            <div>
+                <h2>Redux uses</h2>
+                <ul>
+                    <li><Link to ='/count'>Count</Link></li>
+                    <li><Link to ='/todos'>Todo</Link></li>
+                    <li><Link to = '/users'>Users</Link></li>
+
+                </ul>
+                <Route path='/count' component={Count}/>
+                <Route path ='/todos' component={TodoList}/>
+                <Route path ='/users' component={UsersList} exact={true} />
+                <Route path ='/users/:id' component={UserShow}/>
+            </div>
+        </BrowserRouter>
     )
 }
 

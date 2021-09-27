@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
+import { startSetUser } from './actions/users'
 
 import App from './App'
 
@@ -13,6 +14,8 @@ store.subscribe(()=>{
     // console.log(store)
     console.log(store.getState())
 })
+
+store.dispatch(startSetUser())
 
 const ele =(
     <Provider store={store}>
